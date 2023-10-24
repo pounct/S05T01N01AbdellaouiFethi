@@ -1,6 +1,5 @@
 package cat.itacademy.barcelonactiva.abdellaoui.fethi.s05.t01.n01.model.dto;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import java.util.List;

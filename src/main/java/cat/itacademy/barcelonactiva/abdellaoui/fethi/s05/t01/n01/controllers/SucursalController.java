@@ -17,13 +17,15 @@ import cat.itacademy.barcelonactiva.abdellaoui.fethi.s05.t01.n01.model.domain.Su
 import cat.itacademy.barcelonactiva.abdellaoui.fethi.s05.t01.n01.model.repository.SucursalRepository;
 
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 
 @Controller
+@AllArgsConstructor
 @RequestMapping("/sucursal")
 public class SucursalController {
 
-	@Autowired
-	SucursalRepository sucursalRepository;
+	
+	private SucursalRepository sucursalRepository;
 
 	@GetMapping("/getAll")
 	public String index(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
