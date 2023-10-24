@@ -10,19 +10,27 @@
 
 <body>
 	<header>
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
-				<ul class="nav navbar-nav">
-					<li><a th:href="@{/getAll}">Sucursals</a></li>
-					<li><a th:href="@{/add}">afegeir Sucursal</a></li>
-				</ul>
+				<a class="navbar-brand" href="#">Sucursal Service</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a class="nav-link active" aria-current="page" th:href="@{/sucursal/getAll}">Sucursals</a>
+						<a class="nav-link" th:href="@{/sucursal/add}">add Sucursal</a>
+					</div>
+				</div>
 			</div>
 		</nav>
 	</header>
 
-	<div layout:fragment="content">
+	<section layout:fragment="content">
 
-	</div>
+	</section>
 
 	<footer navbar-fixed-bottom>
 		<hr />
