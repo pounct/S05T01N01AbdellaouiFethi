@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="layout">
+	layout:decorate="template">
 
 <head>
 	<meta charset="utf-8" />
@@ -10,7 +10,7 @@
 </head>
 
 <body>
-	<div layout:fragment="content">
+	<div layout:fragment="content1">
 		<div class="col-md-6 col-xs-12 espaciotop">
 			<div class="card">
 				<div class="card-header ">Introduint Sucursal : <span th:text=${sucursal.pk_SucursalID}></span>
@@ -19,20 +19,22 @@
 					<form th:action=@{guardar} method="post">
 						<div class="form-group">
 							<label class="control-label">Nom :</label>
-							<input class="form-control" type="text" name="nomSucursal" th:value=${sucursal.nomSucursal} />
+							<input class="form-control" type="text" name="nomSucursal"
+								th:value=${sucursal.nomSucursal} />
 							<span class="rojo" th:errors=${sucursal.nomSucursal}></span>
 						</div>
 						<div class="form-group">
 							<label class="control-label">Pais :</label>
-							<input class="form-control" type="text" name="paisSucursal"
-								th:value=${sucursal.paisSucursal} />
+							<input class="form-control" type="text" name="paisSucursal" th:value=${sucursal.paisSucursal} />
 							<span class="rojo" th:errors=${sucursal.paisSucursal}></span>
 						</div>
+						<!--<div class="form-group">
+							<label class="control-label">Tipus Sucursal :</label>
+							<input class="form-control" type="text" name="tipusSucursal" th:value=${sucursal.tipusSucursal} />
+							<span class="rojo" th:errors=${sucursal.tipusSucursal}></span>
+						</div>-->
 						<div>
 							<button type="submit" class="btn btn-primary">Guardar</button>
-						</div>
-						<div>
-							<button type="submit" class="btn btn-primary" th:value=${sucursal.nomSucursal}></button>
 						</div>
 					</form>
 				</div>

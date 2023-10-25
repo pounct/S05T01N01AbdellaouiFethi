@@ -1,7 +1,5 @@
 package cat.itacademy.barcelonactiva.abdellaoui.fethi.s05.t01.n01.model.domain;
 
-import java.io.Serializable;
-
 import cat.itacademy.barcelonactiva.abdellaoui.fethi.s05.t01.n01.model.dto.SucursalDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,12 +15,12 @@ import lombok.ToString;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @ToString @Builder
-public class Sucursal implements Serializable {
+public class Sucursal {
 
 	/**
 	 * Entity
 	 */
-	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue
 	Integer pk_SucursalID;

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import cat.itacademy.barcelonactiva.abdellaoui.fethi.s05.t01.n01.model.domain.Sucursal;
 import cat.itacademy.barcelonactiva.abdellaoui.fethi.s05.t01.n01.model.repository.SucursalRepository;
-
+import cat.itacademy.barcelonactiva.abdellaoui.fethi.s05.t01.n01.model.services.SucursalService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
@@ -24,24 +24,26 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/sucursal")
 public class SucursalController {
 
-	
+	private SucursalService sucursalService;
 	private SucursalRepository sucursalRepository;
 
+	
 	@GetMapping("/getAll")
 	public String index(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
-			@RequestParam(name = "size", defaultValue = "5") int s,
+			@RequestParam(name = "size", defaultValue = "10") int s,
 			@RequestParam(name = "pc", defaultValue = "") String keyword) {
 
 		// Page<Sucursal> pageSucursals = sucursalRepository.findAll(PageRequest.of(p,
 		// s));
-		Page<Sucursal> pageSucursals = sucursalRepository.search("%" + keyword + "%", PageRequest.of(p, s));
-
-		model.addAttribute("llistaSucursals", pageSucursals.getContent());
-		int[] pages = new int[pageSucursals.getTotalPages()];
-		model.addAttribute("pages", pages);
-		model.addAttribute("size", s);
-		model.addAttribute("paginaActual", p);
-		model.addAttribute("pc", keyword);
+//		Page<Sucursal> pageSucursals = sucursalRepository.search("%" + keyword + "%", PageRequest.of(p, s));
+//
+//		model.addAttribute("llistaSucursals", pageSucursals.getContent());
+//		int[] pages = new int[pageSucursals.getTotalPages()];
+//		model.addAttribute("pages", pages);
+//		model.addAttribute("size", s);
+//		model.addAttribute("paginaActual", p);
+//		model.addAttribute("pc", keyword);
+		sucursalService.getAll(model,  p,  s,  keyword);
 		return "sucursals";
 
 	}
@@ -80,8 +82,7 @@ public class SucursalController {
 		if (bindingResult.hasErrors()) {
 			return "formSucursal";
 		}
-		System.out.println(sucursal + "noterror");
-		sucursalRepository.save(sucursal);
+		sucursalService.guardar(model, sucursal);
 		return "confirmacio";
 	}
 
