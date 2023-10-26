@@ -5,18 +5,20 @@ import java.util.Arrays;
 import java.util.List;
 
 import cat.itacademy.barcelonactiva.abdellaoui.fethi.s05.t01.n01.model.domain.Sucursal;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data @Builder
+@Data @NoArgsConstructor @AllArgsConstructor @Builder
 public class SucursalDTO {
 	
 	
-	Integer pk_SucursalID;
-	String nomSucursal;
-	String paisSucursal;
+	private Integer pk_SucursalID;
+	private String nomSucursal;
+	private String paisSucursal;
 	
-	String tipusSucursal;
+	private String tipusSucursal;
 	
 	 private static final List<String> countries = Arrays.asList("Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic",
 	            "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Latvia",

@@ -16,20 +16,16 @@ import lombok.ToString;
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @ToString @Builder
 public class Sucursal {
-
-	/**
-	 * Entity
-	 */
 	
 	@Id
 	@GeneratedValue
-	Integer pk_SucursalID;
+	private Integer pk_SucursalID;
 	@NotNull
 	@Size(min=4,max=15)
-	String nomSucursal;
+	private String nomSucursal;
 	@NotNull
 	@Size(min=4,max=15)
-	String paisSucursal;
+	private String paisSucursal;
 	
 	public static Sucursal toEntity(SucursalDTO dto) {
 		Sucursal sucursal= Sucursal.builder()
