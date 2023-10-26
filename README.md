@@ -4,22 +4,22 @@
 - Web Application with Thymeleaf & Bootstrap 5
 
 
-- http://localhost:9000/sucursal/add
+- http://localhost: 9000/sucursal/add
 
-<img src="">
+<img src="add1.png">
 
-- http://localhost:9000/sucursal/update
+<img src="add2.png">
 
-<img src="">
+<img src="add3.png">
 
-- http://localhost:9000/sucursal/delete/{id}
+- http://localhost: 9000/sucursal/edit...
 
-<img src="">
+<img src="update1">
 
-- http://localhost:9000/sucursal/getOne/{id}
+- http://localhost: 9000/sucursal/delete/{id}
 
-<img src="">
+<img src="delete">
 
-- http://localhost:9000/sucursal/getAll
+- http://localhost: 9000/sucursal/getAll
 
-<img src="">
+<img src="getall">
