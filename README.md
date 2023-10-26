@@ -14,12 +14,12 @@
 
 - http://localhost: 9000/sucursal/edit...
 
-<img src="update1">
+<img src="update1.png">
 
 - http://localhost: 9000/sucursal/delete/{id}
 
-<img src="delete">
+<img src="delete.png">
 
 - http://localhost: 9000/sucursal/getAll
 
-<img src="getall">
+<img src="getall.png">
