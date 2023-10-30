@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,20 +26,20 @@ public class SucursalController {
 		return "redirect:/sucursal/getAll";
 	}
 
-	@GetMapping("/getAll")
-	public String index(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
-			@RequestParam(name = "size", defaultValue = "10") int s,
-			@RequestParam(name = "pc", defaultValue = "") String keyword) {
-
-		sucursalService.getAll(model, p, s, keyword);
-		return "sucursals";
-
-	}
+	
 
 	@GetMapping("/add")
 	public String addSucursal(Model model) {
 		sucursalService.addSucursal(model);
 		return "formSucursal";
+	}
+	
+
+	@GetMapping("/update")
+	public String editSucursal(Model model, Integer id) {
+		sucursalService.editSucursal(model, id);
+		
+		return "formEditSucursal";
 	}
 
 	@PostMapping("/guardar")
@@ -50,19 +51,24 @@ public class SucursalController {
 		return "confirmacio";
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/delete")   ///{id}
 	public String deleteSucursal(Integer id, int page, int size, @RequestParam(name = "pc", defaultValue = "") String keyword) {
 
 		sucursalService.deleteSucursal(id);
 		return "redirect:/sucursal/getAll?page=" + page + "&size=" + size + "&pc=" + keyword;
 
 	}
+	
+	@GetMapping("/getAll")
+	public String index(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
+			@RequestParam(name = "size", defaultValue = "10") int s,
+			@RequestParam(name = "pc", defaultValue = "") String keyword) {
 
-	@GetMapping("/edit")
-	public String editSucursal(Model model, Integer id) {
-		sucursalService.editSucursal(model, id);
-		
-		return "formEditSucursal";
+		sucursalService.getAll(model, p, s, keyword);
+		return "sucursals";
+
 	}
+
+
 
 }
